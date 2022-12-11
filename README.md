@@ -1,6 +1,6 @@
 # Browsershot 3.57.2 Vulnerability - Server Side XSS to LFR via HTML
 
-This repository lets show an exploit detected in older versions (<= 3.57.2) of [Browsershot](https://github.com/spatie/browsershot) which allows to access remote system files via `Browsershot::html` or `Browsershot::url` methods.
+This repository shows an exploit which allows to access remote system files via `Browsershot::html` or `Browsershot::url` methods. The exploit was detected in older versions (<= 3.57.2) of Browsershot [Browsershot](https://github.com/spatie/browsershot)
 
 More details see: https://fluidattacks.com/advisories/khalid/
 
@@ -13,7 +13,7 @@ docker run -it --rm --cap-add=SYS_ADMIN browsershot-vulnerability
 ```
 This will create a container and run it with required privileges.
 
-To implement an expoit use last commented RUN commands from Dockerfile inside the container:
+To implement an expoit use last commented RUN commands from Dockerfile inside the /app directory container:
 ```sh
 wget https://github.com/spatie/browsershot/archive/refs/tags/3.57.2.tar.gz -P /app
 tar -xf /app/3.57.2.tar.gz && rm -r /app/3.57.2.tar.gz
@@ -22,7 +22,7 @@ cp -r /app/browsershot-3.57.2/ /app/vendor/spatie/browsershot/
 ```
 This will replace browsershot files of latest version with vulnerable ones. 
 
-After it the example.pdf file will create in the /app directory. To extract it use the built-in Docker commands, e.g.
+Then the example.pdf file will create in the /app directory. To extract it use the built-in Docker commands, e.g.
 ```sh
 docker cp $CONTAINER_ID:/app/example.pdf /path/to/home/dir
 ```
