@@ -1,6 +1,6 @@
 # Browsershot 3.57.2 Vulnerability - Server Side XSS to LFR via HTML
 
-This repository shows an exploit which allows to access remote system files via `Browsershot::html` or `Browsershot::url` methods. The exploit was detected in older versions (<= 3.57.2) of Browsershot [Browsershot](https://github.com/spatie/browsershot)
+This repository shows an exploit which allows to access remote system files via `Browsershot::html` or `Browsershot::url` methods. The exploit was detected in older versions (<= 3.57.2) of [Browsershot](https://github.com/spatie/browsershot)
 
 More details see: https://fluidattacks.com/advisories/khalid/
 
