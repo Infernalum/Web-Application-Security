@@ -9,7 +9,7 @@ More details see: https://fluidattacks.com/advisories/khalid/
 Pull this repository and execute the following commands (use root priviligies for docker daemon if necessary).
 ```sh
 docker build -t browsershot-vulnerability . 
-docker run -it --rm --cap-add=SYS_ADMIN browsershot-vulnerability
+docker run -it --cap-add=SYS_ADMIN browsershot-vulnerability
 ```
 This will create a container and run it with required privileges.
 
@@ -22,7 +22,12 @@ cp -r /app/browsershot-3.57.2/ /app/vendor/spatie/browsershot/
 ```
 This will replace browsershot files of latest version with vulnerable ones. 
 
-Then the example.pdf file will create in the /app directory. To extract it use the built-in Docker commands, e.g.
+Then try to execute the *test.php* like:
+```sh
+php -f test.php
+```
+
+The *example.pdf* file will be created in the */app* directory despite the fact the *etc/passwd* sysfile is passed as an argument. To extract this file use the built-in Docker commands, e.g.
 ```sh
 docker cp $CONTAINER_ID:/app/example.pdf /path/to/home/dir
 ```
